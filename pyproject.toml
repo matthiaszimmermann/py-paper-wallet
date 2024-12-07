@@ -12,8 +12,10 @@ license = { file = "LICENSE" }
 
 dependencies = [
     "eth-account>=0.13.4",
+    "pillow>=11.0.0",
     "pyright>=1.1.390",
     "pytz>=2024.2",
+    "qrcode>=8.0",
     "setuptools>=75.6.0",
 ]
 

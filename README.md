@@ -9,9 +9,19 @@ This initial layout of this repository is based on [github.com/matthiaszimmerman
 
 ## Appendix
 
-### Run Console
+### Use Console
 ```sh
 uv run python
+```
+
+```sh
+from web3.wallet import Wallet
+from util.wallet_file import WalletFile
+w = Wallet.create(pass_phrase="s3cret!")
+wf = WalletFile(w)
+
+# create the paper wallet HTML and vault JSON files
+wf.save()
 ```
 
 ### Run Tests
