@@ -1,7 +1,7 @@
 # Python Paper Wallet
 
 ## Overview
-This initial layout of this repository is based on [github.com/matthiaszimmermann/python-uv].
+The initial layout of this repository is based on [github.com/matthiaszimmermann/python-uv].
 
 ## TODO
 - Improve documentation
