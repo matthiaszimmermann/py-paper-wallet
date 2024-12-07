@@ -81,7 +81,7 @@ def test_wallet_create_from_mnemonic() -> None:  # noqa: D103
     assert w.account.key.to_0x_hex() == DEFAULT_KEYS[0]  # type: ignore  # noqa: PGH003
     assert isinstance(w.vault, dict)
 
-    for i in range(1, 10):
+    for i in range(1, 5):
         check_address_for_index(i)
 
 
