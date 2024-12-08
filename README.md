@@ -4,12 +4,25 @@
 
 This repository provides Python based software to create Ethereum paper wallets.
 
-Ethereum Paper wallets:
-- Suitable for Ethereum chains.
-- Can be created and printed fully offline.
-- The paper remaining the only place where the wallets mnemonic is stored.
-- Are intended to be stored in a safe place (or multiple safe places).
+### What is an Ethereum Paper Wallet?
 
+An Ethereum paper wallet is a form of offline storage for your Ethereum holdings where the private key and the corresponding public address are physically printed (or otherwise recorded) on a piece of paper.
+
+Key Characteristics:
+
+* **Offline Storage**: Because the private key never needs to be kept on an internet-connected device, paper wallets are immune to online hacking attempts.
+* **No Hardware Required**: Unlike hardware wallets or USB drives, a paper wallet only requires a secure place to store a piece of paper.
+* **Vulnerability to Physical Damage or Loss**: While safe from digital theft, paper wallets are susceptible to physical risks—if the paper is damaged, lost, or destroyed, you could lose access to your funds. Proper protection (lamination, backups, secure safes) is often recommended.
+* **No Native Transaction Functionality**: To send funds, you need to import the paper wallet’s private key into a software wallet or another Ethereum-compatible tool. The paper wallet itself is just the static record of your keys.
+
+The risk of pyhical damage or loss is not specific to paper wallets. It also applies to laptops that hold web based wallets like Metamask, and hardware wallets like Tezos.
+
+In essence, an Ethereum paper wallet provides a low-tech, offline method of securing your cryptocurrency, relying on physical security measures rather than complex hardware or software-based protections.
+
+*Source: Shameless copy job using ChatGPT. The content seemed fine and only the remark about physical damage and loss of other wallets was added.*
+
+
+### Previous Work
 The functionality is close to the [previous setup](https://github.com/matthiaszimmermann/ethereum-paper-wallet) based on Java.
 The initial layout of this repository is based on [python-uv](github.com/matthiaszimmermann/python-uv).
 
