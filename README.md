@@ -17,7 +17,7 @@ uv run python
 ```sh
 from web3.wallet import Wallet
 from util.wallet_file import WalletFile
-w = Wallet.create(pass_phrase="s3cret!")
+w = Wallet.create()
 wf = WalletFile(w)
 
 # create the paper wallet HTML and vault JSON files

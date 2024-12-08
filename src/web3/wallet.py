@@ -51,6 +51,7 @@ class Wallet:
         language: Language = LANGUAGE_DEFAULT,
         index: int = INDEX_DEFAULT,
         password: str = generate_password(),
+        print_address: bool = True,  # noqa: FBT001, FBT002
     ) -> "Wallet":
         """Create a new wallet."""
         Wallet.validate_index(index)
@@ -68,6 +69,10 @@ class Wallet:
         )
 
         wallet.address = wallet.account.address  # type: ignore  # noqa: PGH003
+
+        if print_address:
+            print(wallet.address)  # noqa: T201
+
         wallet.password = password
         wallet.vault = wallet.account.encrypt(password)  # type: ignore  # noqa: PGH003
 
