@@ -14,6 +14,11 @@ ENV UV_LINK_MODE=copy
 WORKDIR /app
 
 COPY --from=uv /uv /uvx /bin/
+
 COPY pyproject.toml uv.lock ./
+COPY ./resources ./resources
+COPY ./src ./src
 
 RUN uv sync --frozen --no-install-project
+
+CMD [ "bash" ]

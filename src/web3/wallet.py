@@ -18,7 +18,7 @@ class Wallet:
     PATH_PARTS = 6
     INDEX_DEFAULT = 0
 
-    password: str
+    password: str | None
     vault: dict[str, Any]
     mnemonic: str | None
     address: str
@@ -50,7 +50,7 @@ class Wallet:
         words: int = WORDS_DEFAULT,
         language: Language = LANGUAGE_DEFAULT,
         index: int = INDEX_DEFAULT,
-        password: str = generate_password(),
+        password: str | None = None,
         print_address: bool = True,  # noqa: FBT001, FBT002
     ) -> "Wallet":
         """Create a new wallet."""
@@ -72,6 +72,10 @@ class Wallet:
 
         if print_address:
             print(wallet.address)  # noqa: T201
+
+        # generate random password when not provided
+        if not password or len(password) == 0:
+            password = generate_password()
 
         wallet.password = password
         wallet.vault = wallet.account.encrypt(password)  # type: ignore  # noqa: PGH003
