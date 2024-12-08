@@ -139,7 +139,7 @@ class WalletUtility(HtmlUtility):
             (WalletUtility.get_creation_time_utc(), "Creation Timestamp"),
             (wallet.mnemonic, "Mnemonic"),
             (wallet.path, "BIP 44 Path"),
-            (wallet.pass_phrase, "Pass Phrase"),
+            (wallet.password, "Pass Phrase"),
             (vault_file_content.replace(',"', ', "'), "Vault File"),
         ]
 

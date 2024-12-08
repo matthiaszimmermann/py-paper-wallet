@@ -34,16 +34,18 @@ DEFAULT_KEYS = [
     "0x8d5366123cb560bb606379f90a0bfd4769eecc0557f1b362dcae9012b548b1e5",
 ]
 
+TEST_PASSWORD = "0123456789ab"  # noqa: S105
+
 
 def test_wallet_create_no_args() -> None:  # noqa: D103
-    w = Wallet.create()
+    w = Wallet.create(password=TEST_PASSWORD)
 
     assert w is not None
     assert isinstance(w.mnemonic, str)
     assert isinstance(w.address, str)
     assert isinstance(w.path, str)
     assert isinstance(w.index, int)
-    assert isinstance(w.pass_phrase, str)
+    assert isinstance(w.password, str)
     assert isinstance(w.account, LocalAccount)
     assert isinstance(w.vault, dict)
 
@@ -57,8 +59,8 @@ def test_wallet_create_no_args() -> None:  # noqa: D103
     assert w.index == Wallet.INDEX_DEFAULT
 
     # check pass phrase
-    assert Wallet.PASS_PHRASE_DEFAULT == ""
-    assert w.pass_phrase == Wallet.PASS_PHRASE_DEFAULT
+    assert len(w.password) == 12
+    assert w.password == TEST_PASSWORD
 
     # check address
     assert len(w.address) == 42
@@ -83,6 +85,15 @@ def test_wallet_create_from_mnemonic() -> None:  # noqa: D103
 
     for i in range(1, 5):
         check_address_for_index(i)
+
+
+def test_wallet_create_from_vault() -> None:  # noqa: D103
+    w = Wallet.create(password=TEST_PASSWORD)
+    w_reconstructed = Wallet.from_vault(w.vault, password=w.password)
+
+    assert w_reconstructed.password == w.password
+    assert w_reconstructed.account.key.to_0x_hex() == w.account.key.to_0x_hex()  # type: ignore  # noqa: PGH003
+    assert w_reconstructed.address == w.address
 
 
 def check_address_for_index(index: int) -> None:  # noqa: D103
